@@ -1,7 +1,13 @@
+@font-face {
+    font-family: 'DejaVu Sans';
+    src: url('./dejavu-sans.book.ttf') format('truetype');
+}
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DejaVu Sans', sans-serif;
     background-color: #2f3537;
-    color: white;
+    color: #dddedc;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,46 +26,70 @@ body {
 }
 
 .login-box {
-    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 6px;
     width: 100%;
     max-width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 label {
     display: block;
     font-size: 14px;
     margin-bottom: 8px;
+    justify-self: left;
 }
 
 input {
     width: 100%;
     padding: 8px;
+    height: 8px;
     border: none;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 1px 1px 2px 2px #1e1e1f;
+    border-radius: 2.5px;
+    background: #2c2b2d;
     color: white;
     outline: none;
+}
+
+
+input:focus {
+    border: solid rgba(255, 255, 255, 0.2);
 }
 
 button {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
-    border: none;
+    border-width: 1px;
+    box-shadow: 0 0 1px 1px #1e1e1f;
     border-radius: 4px;
-    background: #006666;
     color: white;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
-button:hover {
-    background: #004d4d;
+button.cancel {
+    justify-self: left;
+    font-size: 14px;
+    background-color: #2e3436;
+    border-color: #1e2324;
 }
+
+button.next {
+    justify-self: right;
+    font-size: 14px;
+    background-color: #204269;
+    border-color: #1e2324;
+}
+
+button.sign_in {
+    justify-self: right;
+    font-size: 14px;
+    background-color: #204269;
+    border-color: #1e2324;
+}
+
 
 .button-group {
     display: flex;
@@ -76,5 +106,5 @@ button:hover {
 }
 
 .rocky-logo img {
-    width: 100px;
+    width: 200px;
 }
