@@ -57,14 +57,11 @@ input:focus {
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
     border-width: 1px;
     box-shadow: 0 0 1px 1px #1e1e1f;
-    border-radius: 4px;
+    border-radius: 5%;
     color: white;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -81,6 +78,7 @@ button.next {
     font-size: 14px;
     background-color: #204269;
     border-color: #1e2324;
+    border: none;
 }
 
 button.sign_in {
