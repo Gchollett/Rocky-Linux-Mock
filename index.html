@@ -9,6 +9,7 @@
 <body id="screen">
     <header>
         <time id="datetime"></time>
+        <img src="header_logos.png"/>
     </header>
     <!-- Username Screen -->
     <div id="username-screen" class="login-container">
@@ -23,12 +24,14 @@
 
     <!-- Password Screen -->
     <div id="password-screen" class="login-container" style="display: none;">
+        <img class="gear" src="Gear.png"/>
         <div class="login-box">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+            <p class="hidden" style="display:none">Sorry, password authentication didn't work. Please try again.</p>
             <div class="button-group">
                 <button class="cancel" onclick="showUsernameScreen()">Cancel</button>
-                <button class="sign_in">Sign In</button>
+                <button class="sign_in" onclick="">Sign In</button>
             </div>
         </div>
     </div>
@@ -36,7 +39,9 @@
         <img src="rocky-logo.png" alt="Rocky Linux Logo">
     </footer>
 </body>
-<script>
+<script type="module">
+    username = ""
+    password = ""
     const options = {
         month: "short",
         day: "numeric",
@@ -50,7 +55,9 @@
     }
     updateDateTime()
     setInterval(updateDateTime, 1000);
+    
     function showPasswordScreen() {
+        username = document.getElementById('username').value
         document.getElementById('username-screen').style.display = 'none';
         document.getElementById('password-screen').style.display = 'flex';
     }
@@ -58,6 +65,10 @@
     function showUsernameScreen() {
         document.getElementById('username-screen').style.display = 'flex';
         document.getElementById('password-screen').style.display = 'none';
+    }
+
+    function savePassword(){
+        
     }
 
     var elem = document.getElementById("screen");

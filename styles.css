@@ -3,6 +3,9 @@
     src: url('./dejavu-sans.condensed.ttf') format('truetype');
 }
 
+:root {
+    --button-width: 80px
+}
 
 body {
     font-family: 'DejaVu Sans', sans-serif;
@@ -45,7 +48,7 @@ input {
     height: 8px;
     border: solid #2f3537;
     box-shadow: inset 1px 1px 2px 2px #1e1e1f;
-    border-radius: 2.5px;
+    border-radius: 4px;
     background: #2c2b2d;
     color: white;
     outline: none;
@@ -53,18 +56,27 @@ input {
 }
 
 
+header img{
+    position: fixed;
+    scale: 35%;
+    top: -230px;
+    right: -150px;
+}
+
 input:focus {
     border: solid rgba(255, 255, 255, 0.2);
 }
 
 button {
     border-width: 1px;
-    box-shadow: 0 0 1px 1px #1e1e1f;
+    box-shadow: 0 0 .5px .75px rgb(27, 27, 28);
     border-radius: 5%;
     color: white;
     font-size: 1em;
     cursor: pointer;
     transition: background 0.3s;
+    height: 23px;
+    min-width: var(--button-width);
 }
 
 button.cancel {
@@ -77,7 +89,7 @@ button.cancel {
 footer {
     align-self: center;
     position: fixed;
-    bottom: 40px;
+    bottom: 20px;
 }
 
 button.next {
@@ -85,7 +97,8 @@ button.next {
     font-size: 14px;
     background-color: #2e3436;
     border-color: #1e2324;
-    left: 80%;
+    justify-self: right;
+    left: calc(100% - var(--button-width));
 }
 
 button.next:hover {
@@ -119,9 +132,16 @@ button.sign_in {
 }
 
 .rocky-logo {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .rocky-logo img {
     width: 200px;
+}
+
+.gear {
+    scale: 5.5%;
+    position: fixed;
+    top: 19.75%;
+    right: 26%;
 }
