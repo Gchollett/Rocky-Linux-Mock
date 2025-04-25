@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocky Linux Login</title>
     <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body id="screen">
     <header>
         <time id="datetime"></time>
         <img src="header_logos.png"/>
     </header>
+    
     <!-- Username Screen -->
     <div id="username-screen" class="login-container">
         <div class="login-box">
@@ -28,10 +30,10 @@
         <div class="login-box">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <p class="hidden" style="display:none">Sorry, password authentication didn't work. Please try again.</p>
+            <p id="wrong-message" style="display:none">Sorry, password authentication didn't work. Please try again.</p>
             <div class="button-group">
                 <button class="cancel" onclick="showUsernameScreen()">Cancel</button>
-                <button class="sign_in" onclick="">Sign In</button>
+                <button class="sign_in" onclick="savePassword()">Sign In</button>
             </div>
         </div>
     </div>
@@ -39,51 +41,5 @@
         <img src="rocky-logo.png" alt="Rocky Linux Logo">
     </footer>
 </body>
-<script type="module">
-    username = ""
-    password = ""
-    const options = {
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric"
-    };
-    function updateDateTime() {
-        const now = new Date();
-        const currentDateTime = now.toLocaleString("en-US",options).replace(",","").replace("PM","");
-        document.querySelector('#datetime').textContent = currentDateTime;
-    }
-    updateDateTime()
-    setInterval(updateDateTime, 1000);
-    
-    function showPasswordScreen() {
-        username = document.getElementById('username').value
-        document.getElementById('username-screen').style.display = 'none';
-        document.getElementById('password-screen').style.display = 'flex';
-    }
-
-    function showUsernameScreen() {
-        document.getElementById('username-screen').style.display = 'flex';
-        document.getElementById('password-screen').style.display = 'none';
-    }
-
-    function savePassword(){
-        
-    }
-
-    var elem = document.getElementById("screen");
-
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-        }
-    }
-    addEventListener("keypress",(e) => {
-        if(e.key == "f") openFullscreen();
-    })
-</script>
+<script src="renderer.js"></script>
 </html>
