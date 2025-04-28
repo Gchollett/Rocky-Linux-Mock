@@ -1,5 +1,5 @@
 const { ipcMain } = require('electron')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const fs = require('fs')
 const { app, BrowserWindow } = require('electron/main')
 const path = require('node:path')
@@ -12,11 +12,11 @@ function createWindow () {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
-    // titleBarStyle: "hidden"
+     titleBarStyle: "hidden"
   })
 
   win.loadFile('index.html')
-  // win.setMenu(null)
+  win.setMenu(null)
   win.maximize()
 }
 
