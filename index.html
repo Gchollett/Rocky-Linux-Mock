@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body id="screen">
-    <header>
+    <header id="header">
         <time id="datetime"></time>
         <img src="header_logos.png"/>
     </header>
@@ -17,27 +17,33 @@
     <div id="username-screen" class="login-container">
         <div class="login-box">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" autofocus required>
                 <div class="button-group">
-                <button class="next" onclick="showPasswordScreen()">Next</button>
+                <button id="next" class="next" disabled=true  onclick="showPasswordScreen()">Next</button>
             </div>
         </div>
     </div>
 
     <!-- Password Screen -->
     <div id="password-screen" class="login-container" style="display: none;">
-        <img class="gear" src="Gear.png"/>
         <div class="login-box">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <p id="wrong-message" style="display:none">Sorry, password authentication didn't work. Please try again.</p>
+            <input type="password" id="password" name="password" autofocus required>
+            <p id="wrong-message" style="visibility:hidden">Sorry, password authentication didn't work. Please try again.</p>
             <div class="button-group">
-                <button class="cancel" onclick="showUsernameScreen()">Cancel</button>
-                <button class="sign_in" onclick="savePassword()">Sign In</button>
+                <button id="cancel" class="cancel" onclick="showUsernameScreen()">Cancel</button>
+	        <img class="gear" src="Gear.png"/>
+                <button id="sign-in" class="sign_in" onclick="savePassword()">Sign In</button>
             </div>
         </div>
     </div>
-    <footer class="rocky-logo">
+    <div id="hacked" style="display:none">
+	<h1 class="rainbow-text">YOU JUST GOT PHISHED</h1>
+        <p class="rainbow-text">We have stored your username and password (hashed but it could have not been)</p>
+	<img src="troll-face"/>	
+        <img src="laughing-emoji"/>
+    </div>
+    <footer id="footer" class="rocky-logo">
         <img src="rocky-logo.png" alt="Rocky Linux Logo">
     </footer>
 </body>

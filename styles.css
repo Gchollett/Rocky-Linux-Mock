@@ -7,6 +7,19 @@
     --button-width: 80px
 }
 
+.hacked {
+    background-color: #39FF14;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+    text-align: center;
+}
+
+.rainbow-text{
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 body {
     font-family: 'DejaVu Sans', sans-serif;
     background-color: #2f3537;
@@ -95,22 +108,34 @@ footer {
 button.next {
     position: relative;
     font-size: 14px;
-    background-color: #2e3436;
-    border-color: #1e2324;
     justify-self: right;
     left: calc(100% - var(--button-width));
 }
 
-button.next:hover {
+button:hover {
+   cursor: default;
+}
+
+button.next:hover, button.cancel:hover {
     background-color: #204269;
 }
+
+button:disabled, button[disabled]{
+    background-color: #2e3436;
+    border-color: #1e2324;
+    opacity: 0.6;
+} 
 
 button.sign_in {
     justify-self: right;
     font-size: 14px;
+}
+
+.sign_in, .next{
     background-color: #204269;
     border-color: #1e2324;
 }
+
 
 #datetime {
     position: fixed;
@@ -131,6 +156,7 @@ button.sign_in {
     width: 20%;
 }
 
+
 .rocky-logo {
     margin-top: 25px;
 }
@@ -141,7 +167,14 @@ button.sign_in {
 
 .gear {
     scale: 5.5%;
-    position: fixed;
-    top: 19.75%;
-    right: 26%;
+    position: absolute;
+    top: 34.5%;
+    right: 34%;
+}
+
+#wrong-message {
+    font-size: .85rem;
+    text-align: left;
+    position: relative;
+    top: 20px;
 }
